@@ -3,6 +3,7 @@
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
+use CodeIgniter\Database\MySQLi\Forge;
 
 class Transaction extends Migration
 {

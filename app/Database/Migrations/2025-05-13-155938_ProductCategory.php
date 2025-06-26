@@ -9,28 +9,38 @@ class ProductCategory extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id'          => [
+            'id' => [
                 'type'           => 'INT',
+                'constraint'     => 11,
                 'unsigned'       => true,
-                'auto_increment' => true,
+                'auto_increment' => true
             ],
-            'name'        => [
+            'name' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => 100,
+                'unique'     => true,
+                'null'       => false
+            ],
+            'slug' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 100,
+                'unique'     => true,
+                'null'       => false
             ],
             'description' => [
                 'type' => 'TEXT',
-                'null' => true,
+                'null' => true
             ],
-            'created_at'  => [
+            'created_at' => [
                 'type' => 'DATETIME',
-                'null' => true,
+                'null' => true
             ],
-            'updated_at'  => [
+            'updated_at' => [
                 'type' => 'DATETIME',
-                'null' => true,
-            ],
+                'null' => true
+            ]
         ]);
+
         $this->forge->addKey('id', true);
         $this->forge->createTable('product_category');
     }
